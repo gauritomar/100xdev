@@ -1,0 +1,30 @@
+<html>
+  <script>
+    function addTodo() {
+      const title = document.querySelector("input[placeholder='title']").value;
+      const description = document.querySelector(
+        "input[placeholder='description']"
+      ).value;
+      const container = document.getElementById("container");
+
+      const newTodo = document.createElement("div");
+      newTodo.innerHTML = `
+                <div>
+                    <div>${title}</div>
+                    <div>${description}</div>
+                    <button>Mark as done</button>
+                </div>
+            `;
+
+      container.appendChild(newTodo);
+    }
+  </script>
+
+  <div>
+    <input type="text" placeholder="title" />
+    <input type="text" placeholder="description" />
+    <br />
+    <button onclick="addTodo()">Add todo</button>
+    <div id="container"></div>
+  </div>
+</html>
