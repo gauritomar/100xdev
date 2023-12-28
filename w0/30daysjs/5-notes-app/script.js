@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
             notesContainer.insertAdjacentElement('afterbegin', inputBox); // Insert at the beginning
         });
     }
-});
+}); localStorage
 
 createBtn.addEventListener("click", () => {
     const inputBox = document.createElement("div");
