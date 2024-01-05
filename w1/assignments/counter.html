@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+  </head>
+  <body>
+    <div id="timer">3</div>
+    <script>
+      const timer = document.getElementById("timer");
+
+      function decreaseCounter() {
+        const timerValue = timer.innerHTML;
+        if (timerValue == 0) {
+          timer.innerHTML = 3;
+          timerValue = timer.innerHTML;
+        }
+        timer.innerHTML = timerValue - 1;
+      }
+
+      setInterval(decreaseCounter, 1000);
+    </script>
+  </body>
+</html>
