@@ -1,0 +1,1 @@
+Hi Reading this file by calling it from a promise!
