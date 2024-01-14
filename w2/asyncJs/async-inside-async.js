@@ -13,3 +13,9 @@ for (let i = 0; i < 10; i++) {
 }
 
 console.log("after");
+
+// is there is an async inside an aysync, after the outside async gets over
+// in the web api, waits in the callback queue then gets picked up by the event loop
+// to the call stack then the inside async function gets put inside the web api
+
+// this is known as callback hell where callback inside callback
