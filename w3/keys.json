@@ -1,0 +1,13 @@
+[
+    {
+        "service": "MongoDB",
+        "username": "gauri055btcse20",
+        "password": "YeGrMC4jRaS6YdNM",
+        "url": "mongodb+srv://gauri055btcse20:YeGrMC4jRaS6YdNM@cluster0.kbhgkii.mongodb.net/"
+    },
+    {
+        "serivce": "postgreSQL",
+        "company": "neon.tech",
+        "url": "postgresql://gauri055btcse20:Xq4wvIoibF7N@ep-lingering-union-a1m32631.ap-southeast-1.aws.neon.tech/test?sslmode=require"
+    }
+]
