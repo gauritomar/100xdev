@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <button onclick="getAnimalDataAsync()">Get Animal Data</button>
+    <script>
+      function getAnimalData() {
+        // fetch is an asyncronous function
+        const response = fetch("https://fakerapi.it/api/v1/persons");
+        // will show promise <pending>
+        console.log(response);
+        console.log(`Now using .then() on the fetch promise`);
+        // use the promisified syntax
+        fetch("https://fakerapi.it/api/v1/persons").then(function (response) {
+          // this in itself is an asyncronous function
+          const res = response.json();
+          console.log(res);
+          // this will log another promise object with status resolved
+          // since this is also a promise, we need to await this as well
+        });
+
+        // now logging the final data after all promises have been resolved
+        console.log(`Now using .then() and another then() on the response`);
+        fetch("https://fakerapi.it/api/v1/persons").then(function (response) {
+          response.json().then(function (finalData) {
+            console.log(finalData);
+          });
+        });
+      }
+      // now using async await instead of promise .then(function(resolve))
+      async function getAnimalDataAsync() {
+        const response = await fetch("https://fakerapi.it/api/v1/persons");
+        const finalData = await response.json();
+        console.log(finalData);
+      }
+    </script>
+  </body>
+</html>
