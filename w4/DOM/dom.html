@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo App</title>
+  </head>
+  <body>
+    <script>
+      function createChild(title, description, globalId) {
+        const child = document.createElement("div");
+        const firstGrandParent = document.createElement("div");
+        firstGrandParent.innerHTML = title;
+        const secondGrandParent = document.createElement("div");
+        secondGrandParent.innerHTML = description;
+
+        const thirdGrandParent = document.createElement("button");
+        thirdGrandParent.innerHTML = "Mark as Done!";
+
+        child.appendChild(firstGrandParent);
+        child.appendChild(secondGrandParent);
+        child.appendChild(thirdGrandParent);
+        child.setAttribute("id", globalId);
+        return child;
+      }
+
+      function updateDomAccToState(state) {
+        // clear the existing todos
+        const parent =
+          document.getElementById("todo") || document.createElement("div");
+        parent.innerHTML = "";
+
+        for (let i = 0; i < state.length; i++) {
+          const child = createChild(
+            state[i].title,
+            state[i].description,
+            state[i].id
+          );
+          parent.appendChild(child);
+        }
+      }
+
+      function addTodo() {
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+        const todoId = Date.now(); // Use a timestamp as a unique ID
+
+        // Get the current state
+        const currentState = getCurrentState();
+
+        // Add the new todo to the state
+        currentState.push({
+          title: title,
+          description: description,
+          id: todoId,
+        });
+
+        // Update the DOM with the updated state
+        updateDomAccToState(currentState);
+
+        // Clear input fields
+        document.getElementById("title").value = "";
+        document.getElementById("description").value = "";
+      }
+
+      // Get the current state from the DOM
+      function getCurrentState() {
+        const parent = document.getElementById("todo");
+        const children = parent.children;
+        const currentState = [];
+
+        for (let i = 0; i < children.length; i++) {
+          const title = children[i].children[0].innerHTML;
+          const description = children[i].children[1].innerHTML;
+          const id = children[i].id;
+
+          currentState.push({
+            title: title,
+            description: description,
+            id: id,
+          });
+        }
+
+        return currentState;
+      }
+
+      // Call updateDomAccToState with an initial state
+      updateDomAccToState([
+        {
+          title: "go to gym",
+          description: "go to gym from 5-7",
+          id: 1,
+        },
+      ]);
+    </script>
+
+    <div>
+      <input type="text" id="title" placeholder="Todo title" />
+      <br />
+      <input type="text" id="description" placeholder="Todo description" />
+      <br />
+      <button onclick="addTodo()">Add Todo</button>
+      <br />
+      <div id="todo"></div>
+    </div>
+  </body>
+</html>

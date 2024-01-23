@@ -1,0 +1,10 @@
+To create a dynamic frontend wesbite
+
+1. Update a state variable
+2. Delegate the task of figuring out difference to a hefty function
+3. Tell the hefty function how to add, update and remove elements
+
+
+The crux of react is the figuring out the changes in the state variable
+
+The React DOM library does the updating of state variables part
