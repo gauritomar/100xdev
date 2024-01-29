@@ -14,3 +14,5 @@ This is my work for the [Live 0-100 Cohort 2.0.](https://harkirat.classx.co.in/n
 | Resource                                                                                  | Repo                                                                      |
 | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | [30 days of JS](https://www.youtube.com/playlist?list=PLjwm_8O3suyOgDS_Z8AWbbq3zpCmR-WE9) | [30daysjs](https://github.com/gauritomar/100xdev/tree/master/w0/30daysjs) |
+
+| [Zomato Clone (Promises)](https://www.youtube.com/watch?v=3PSqgH9VCi8) | [Zomato Clone Promises] |
