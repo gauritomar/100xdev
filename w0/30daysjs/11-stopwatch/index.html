@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/7fa156a708.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="stopwatch">
+      <h1 id="displayTime">00:00:00</h1>
+      <div class="buttons">
+        <i onclick="stopWatch()" class="fa-solid fa-circle-stop"></i>
+        <i onclick="watchStart()" class="fa-solid fa-circle-play"></i>
+        <i onclick="clearWatch()" class="fa-solid fa-arrows-rotate"></i>
+      </div>
+    </div>
+
+    <script>
+      let [seconds, minutes, hours] = [0, 0, 0];
+      let displayTime = document.getElementById("displayTime");
+      let timer = null;
+
+      function stopwatch() {
+        seconds++;
+        if (seconds == 60) {
+          seconds = 0;
+          minutes++;
+          if (minutes == 60) {
+            minutes = 0;
+            hours++;
+          }
+        }
+        displayTime.innerHTML = `${hours}:${minutes}:${seconds}`;
+      }
+
+      function watchStart() {
+        if (timer != null) {
+          clearInterval(timer);
+        }
+        timer = setInterval(stopwatch, 1000);
+      }
+      function clearWatch() {
+        if (timer != null) {
+          clearInterval(timer);
+        }
+        [seconds, minutes, hours] = [0, 0, 0];
+        displayTime.innerHTML = `${hours}:${minutes}:${seconds}`;
+      }
+
+      function stopWatch() {
+        clearInterval(timer);
+      }
+    </script>
+  </body>
+</html>
