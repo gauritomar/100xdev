@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horizontal Scroll Image Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/7fa156a708.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="gallery-wrap">
+      <i class="fas fa-hand-point-left" id="backBtn"></i>
+      <div class="gallery">
+        <div>
+          <img src="images/OIG1-1.jpg" />
+          <img src="images/OIG1-2.jpg" />
+          <img src="images/OIG1-3.jpg" />
+        </div>
+        <div>
+          <img src="images/OIG1.jpg" />
+          <img src="images/OIG4-1.jpg" />
+          <img src="images/OIG4-2.jpg" />
+        </div>
+        <div>
+          <img src="images/OIG4.5Ef4mEw.jpg" />
+          <img src="images/OIG4.jpg" />
+          <img src="images/OIG2.jpg" />
+        </div>
+      </div>
+      <i class="fas fa-hand-point-right" id="nextBtn"></i>
+    </div>
+
+    <script>
+      let scrollContainer = document.querySelector(".gallery");
+      let backBtn = document.getElementById("backBtn");
+      let nextBtn = document.getElementById("nextBtn");
+
+      backBtn.addEventListener("click", () => {
+        scrollContainer.style.scrollBehavior = "smooth";
+        scrollContainer.scrollLeft -= 600;
+      });
+
+      nextBtn.addEventListener("click", () => {
+        scrollContainer.style.scrollBehavior = "smooth";
+        scrollContainer.scrollLeft += 600;
+      });
+
+      document.body.addEventListener("wheel", handleWheel);
+      document.body.addEventListener("mousewheel", handleWheel);
+
+      function handleWheel(evt) {
+        console.log("Wheel event fired up");
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+      }
+    </script>
+  </body>
+</html>
