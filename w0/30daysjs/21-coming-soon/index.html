@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/7fa156a708.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <img src="images/logo.png" class="logo" />
+      <div class="content">
+        <p>Website Under Maintenance</p>
+        <h1>We are <span>launching soon</span></h1>
+        <div class="launch-time" id="launch-time">
+          <div>
+            <p id="days">000</p>
+            <span>Days</span>
+          </div>
+          <div>
+            <p id="hours">00</p>
+            <span>Hours</span>
+          </div>
+          <div>
+            <p id="minutes">00</p>
+            <span>Minutes</span>
+          </div>
+          <div>
+            <p id="seconds">00</p>
+            <span>Seconds</span>
+          </div>
+        </div>
+        <button>Learn More <i class="fa-solid fa-link"></i></button>
+      </div>
+      <img src="images/rocket.png" class="rocket" />
+    </div>
+    <script>
+      var countDownDate = new Date("April 16, 2024 00:00:00").getTime();
+      var x = setInterval(() => {
+        var now = new Date().getTime();
+        var left = countDownDate - now;
+
+        var days = Math.floor(left / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (left % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((left % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((left % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText =
+          days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerText =
+          hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerText =
+          minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerText =
+          seconds < 10 ? "0" + seconds : seconds;
+
+        if (left < 0) {
+          clearInterval(x);
+          document.getElementById("launch-time").innerHTML = "Launched!";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
