@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Calendar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="calendar">
+        <div class="left">
+          <p id="date">04</p>
+          <p id="day">Sunday</p>
+        </div>
+        <div class="right">
+          <p id="month">February</p>
+          <p id="year">2024</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const day = document.getElementById("day");
+      const date = document.getElementById("date");
+      const month = document.getElementById("month");
+      const year = document.getElementById("year");
+
+      var dayMap = {
+        0: "Sunday",
+        1: "Monday",
+        2: "Tuesday",
+        3: "Wednesday",
+        4: "Thursday",
+        5: "Friday",
+        6: "Saturday",
+      };
+
+      const allMonths = [
+        "Januray",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+
+      const today = new Date();
+      date.innerHTML = (today.getDate() < 10 ? "0" : "") + today.getDate();
+      day.innerHTML = dayMap[today.getDay()];
+      month.innerHTML = allMonths[today.getMonth()];
+      year.innerHTML = today.getFullYear();
+    </script>
+  </body>
+</html>
